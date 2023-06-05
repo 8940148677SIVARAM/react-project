@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-project%20/static/css/main.6d9cac40.css",
-    "main.js": "/react-project%20/static/js/main.a705a958.js",
+    "main.css": "/react-project%20/static/css/main.a3d89a24.css",
+    "main.js": "/react-project%20/static/js/main.44278ec6.js",
     "static/js/787.28cb0dcd.chunk.js": "/react-project%20/static/js/787.28cb0dcd.chunk.js",
     "static/media/stone.png": "/react-project%20/static/media/stone.41a3f330e785194b2530.png",
     "static/media/slick.svg": "/react-project%20/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -9,12 +9,12 @@
     "static/media/slick.ttf": "/react-project%20/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/react-project%20/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/react-project%20/index.html",
-    "main.6d9cac40.css.map": "/react-project%20/static/css/main.6d9cac40.css.map",
-    "main.a705a958.js.map": "/react-project%20/static/js/main.a705a958.js.map",
+    "main.a3d89a24.css.map": "/react-project%20/static/css/main.a3d89a24.css.map",
+    "main.44278ec6.js.map": "/react-project%20/static/js/main.44278ec6.js.map",
     "787.28cb0dcd.chunk.js.map": "/react-project%20/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d9cac40.css",
-    "static/js/main.a705a958.js"
+    "static/css/main.a3d89a24.css",
+    "static/js/main.44278ec6.js"
   ]
 }
