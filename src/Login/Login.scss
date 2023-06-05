@@ -1,0 +1,181 @@
+.login-form{
+    background-color: #f0f2f5;
+    .container{
+        .head{
+            display: flex;
+            justify-content: center;
+          }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+            height: 768px;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 12%;
+            .Logo{
+                width: 50%;
+                margin-top: 4%;
+                img{
+                    height: 106px;
+                }
+                p{
+                    padding: 0px 5%;
+                    font-size: 30px;
+                    font-weight: 400;
+                }
+            }
+            .Form{
+                background-color: white;
+                width: 32%;
+                border-radius: 10px;
+                position: relative;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+                padding: 0.5% 1% 2% 1%;
+                form{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                a{
+                    color: #1877f2;
+                }
+                .line{
+                    align-items: center;
+                    border-bottom: 1px solid #dadde1;
+                    display: flex;
+                    margin: 20px 16px;
+                    text-align: center;
+                }
+                .MuiInputBase-root{
+                    width: 100%;
+                    margin: 2%;
+                }
+                .log{
+                    width: 100%;
+                    font-weight: 700;
+                    color: #fff;
+                    font-size: medium;
+                    margin: 2%;
+                    padding: 3% 0px;
+                    background-color: #1877f2;
+                }
+                }
+                .sign{
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    position: relative;
+                .create{
+                    color: #fff;
+                    background-color: #42b72a;
+                    text-transform: none;
+                    font-weight: 600;
+                    font-size: 15px;
+                    padding: 3% 2%;
+                }
+                p{
+                    margin: 2%;
+                    position: absolute;
+                    top: 160%;
+                    span{
+                        a{
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 600;
+                        }
+                    }
+                }
+            }
+            }
+        
+    }
+    }
+}
+.login-info{
+       height: 30vh;
+       background-color: #ffff;
+       .container{
+                .links{
+                    margin: 5% 10%;
+                    .lang{
+                        margin: 2% 0px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        a{
+                       color:  #737373;
+                        text-decoration: none;
+                        font-size: 14px;
+                        }
+                    }
+                    .page{
+                        margin: 2% 0px ;
+                        display: flex;
+                        justify-content: space-around;
+                        a{
+                        color: #737373;
+                        font-size: 14px;
+                        text-decoration: none;
+                        }
+                        p{
+                            display: inline;
+                            font-size: 14px;
+                        }
+                    }
+                }
+       }
+}
+.d-none{
+    display:none;
+}
+@media (max-width:992px) {
+    .login-form{
+        .container{
+            .flex{
+                justify-content: space-between;
+            }
+        }
+    }
+}
+@media (width:540px) {
+    .login-form{
+        .container{
+            .flex{
+                .Form{
+                    width: 40% !important;
+                }
+            }
+        }
+    }
+}
+@media (max-width:520px) {
+    .login-form{
+        .container{
+            .flex{
+                height: 540px;
+                justify-content: flex-start;
+                flex-direction: column;
+                .Logo{
+                    width: 100%;
+                    p{
+                        display: none;
+                    }
+                }
+                .Form{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .login-info{
+        .container{
+            .links{
+                .about{
+                    p{
+                        display: none;
+                    }
+                }
+                
+            }
+        }
+    }
+}

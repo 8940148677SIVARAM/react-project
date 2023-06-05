@@ -1,0 +1,100 @@
+#post-section{
+    position: relative;
+  
+    .post-back{
+        opacity: 0.2;
+       
+    }
+   .post-card{
+    position: absolute;
+    position: fixed;
+    top:80px;
+  width: 100%;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+   }
+   .post{
+    width: 42%;
+    position: relative;
+    h1{
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid lightgrey;
+    }
+    .post-close{
+        position: absolute;
+        right: 15px;
+        top: 7px;
+    }
+    .post-man{
+        display: flex;
+        padding: 10px 0px 10px 20px ;
+    }
+    .man-img{
+        img{
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        }
+    }
+    .man-name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .post-box{
+        padding: 20px 20px;
+        input[type="text" i]{
+        width: 100%;
+        padding-bottom: 80px;
+        border: none;
+        }
+    }
+    .post-icon{
+        padding:10px 10px;
+        display: flex;
+        align-items: center;
+       border: 1px solid lightgray;
+       margin: 20px;
+       
+       .MuiButtonBase-root {
+        border-radius: 50px !important;
+       }
+       img{
+        width: 25px;
+       }
+       .post-img{
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+           .upload{
+            position: relative;
+            overflow:hidden;
+            input[type="file"]{
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+           }
+       }
+    }
+    .post-btn{
+        margin: 30px 20px;
+        text-align: center;
+       button{
+        width: 100%;
+        padding: 8px 0px;
+        border: none;
+        font-size: 18px;
+        color: lightgray;
+       }
+       button:hover{
+        background-color: green;
+       }
+    }
+   }
+}

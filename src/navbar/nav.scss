@@ -1,0 +1,129 @@
+#navbar {
+  .css-1kcggdq-MuiInputBase-root {
+    color: black !important;
+  }
+  .MuiInputBase-input {
+    width: 14ch !important;
+  }
+  .search-icon {
+    color: black !important;
+    width: 35px;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+    padding: 8px;
+    background-color: lightgrey;
+  }
+  .face-icon {
+    color: var(--primary-color) !important;
+    .MuiSvgIcon-root {
+      font-size: 50px !important;
+    }
+  }
+  .navic-icon {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    // .MuiSvgIcon-root {
+    //     font-size: 30px !important;
+    //     color:rgb(101, 89, 89) !important;
+    //     height: 50px;
+    //     width: 50px;
+    //     border: 1px solid;
+
+    .navnav-icon {
+      cursor: pointer;
+      button{
+        background: transparent;
+        border: none;
+      }
+      .MuiSvgIcon-root {
+        font-size: 30px !important;
+        color: var(--font-color) !important;
+        line-height: 2;
+        font-weight: 400;
+      }
+      height: 50px;
+      width: 90px;
+      border: 1px solid;
+      line-height: 4;
+      border-radius: 5px;
+    }
+    .active {
+      border-bottom: 3px solid var(--primary-color);
+    }
+    .navnav-icon:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      border-bottom: 3px solid var(--primary-color);
+    }
+  }
+
+  .side-icon {
+    .MuiSvgIcon-root {
+      font-size: 30px !important;
+      color: black !important;
+    }
+  }
+  .MuiMenuItem-root {
+    .MuiSvgIcon-root {
+      padding: 0 20px !important;
+    }
+  }
+
+  @media (max-width:576px) {
+
+    .navic-icon{
+      display: none;
+    }
+    .css-1guk29{
+      display: block !important;
+      display: flex !important;
+    }
+    .MuiInputBase-input {
+      width: 0ch !important;
+    }
+    .MuiIconButton-edgeStart{
+      margin-right: 0px !important;
+    }
+  }
+  // .css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper{
+  //   top: 66px !important;
+  //   left: 1057px !important;
+  // }
+ 
+
+}
+.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper{
+  top: 68px !important;
+  left: 900px !important;
+width: 25%;
+padding: 20px;
+text-align: center;
+}
+.popup-box{
+
+  .popup-img{
+    padding: 20px;
+   margin-bottom: 10px;
+   .popupimg-name{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    div{
+      width:50%;
+      img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    margin-right:10px;
+      }
+    }
+   }
+  }
+  span{
+    margin-left: 10px;
+  }
+  
+ 
+}

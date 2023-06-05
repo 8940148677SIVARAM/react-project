@@ -1,0 +1,113 @@
+.container{
+   #login-page{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   .logo{
+      img{
+        height: 100px;
+      }
+   }
+.form{
+    width: 40%;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+    border-radius: 5px;
+    .head{
+        display: flex;
+        justify-content: space-between;
+        button{
+            background:transparent;
+            color: red;
+            padding: 10px;
+        }
+    }
+    hr{
+        margin: 15px 0px;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        padding:4px 7px;
+        .col-6{
+            width: 47%;
+        }
+        .col-12{
+            width: 100%;
+            .MuiFormControl-root{
+                width: 100%;
+            }
+
+        }
+        .col-4{
+            width:30%;
+        }
+        .boy{
+            border: 1px solid rgb(202, 197, 197);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            input{
+                margin-left: 15px;
+                margin-top: 3px;
+            }
+            label{
+                color: gray;
+            }
+        }
+    }
+    p{
+        color: gray;
+    }
+    h1{
+        font-size: 35px;
+    }
+    button{
+        background-color: #00a400;
+        padding: 10px;
+        border: none;
+        color: white;
+        width: 30%;
+        border-radius: 5px;
+    }
+    .justtwo{
+        justify-content: center;
+    }
+
+}
+.just{
+    justify-content: space-between;
+    .col-4{
+    select{
+        width: 100%;
+        padding: 18px 2px;
+        border-color: lightgray;
+        border-radius: 5px;
+        background: transparent;
+        color:gray;
+    }
+}
+}
+}
+}
+.border{
+    border:2px solid red;
+    border-radius: 5px;
+}
+
+@media (max-width:576px){
+    
+
+.container #login-page .form {
+    width: 100%;
+}
+}
+
+@media (max-width:768px){
+    .container #login-page .form {
+        width: 100%;
+    }
+
+}
