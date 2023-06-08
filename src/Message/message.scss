@@ -35,6 +35,13 @@
             position: sticky;
             top: 0;
             z-index: 2;
+            button{
+                padding: 5px;
+                border-radius: 25px;
+                border: none;
+                background: beige;
+                cursor: pointer;
+            }
         }
 
         .first {
@@ -53,6 +60,11 @@
                     border-radius: 50%;
                     margin-right:10px;
                 }
+                a{
+                    width: 100%;
+                    position: absolute;
+                    opacity: 0;
+                }
             }
         }
     }
@@ -62,7 +74,7 @@
         position: relative;
         overflow: scroll;
         border-left: 5px solid skyblue;
-       height: 95vh;
+       height: 97vh;
         h1 {
             background-color: skyblue;
             text-align: center;
@@ -73,7 +85,6 @@
             top: 0;
             z-index: 2;
         }
-
         .m {
             position: absolute;
             right: 20px;
@@ -145,6 +156,14 @@
             bottom: 0;
             right: 0;
             height: 43px;
+            a{
+                width: 100%;
+                position: absolute;
+                height: 43px;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
         }
     }
 }

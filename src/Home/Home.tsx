@@ -123,6 +123,13 @@ const Home = () => {
                     <div className="col-10">GAME</div>
                   </div>
                 </li>
+                <li >
+                  <div className="row align-items">
+                    <div className="col-2" style={{color:"green",width:"100%"}}>
+                       post images only
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -210,7 +217,7 @@ const Home = () => {
                 <div className="upload-items">
                   <div className="row">
                     <div className="col-4 upload-icon">
-                      <span>
+                      <span onClick={()=>navigate("/post")}>
                         <DuoIcon className="video-icon"></DuoIcon>Live Video
                       </span>
                     </div>
@@ -221,7 +228,7 @@ const Home = () => {
                       </span>
                     </div>
                     <div className="col-4 upload-icon">
-                      <span>
+                      <span onClick={()=>navigate("/post")}>
                         <TagFacesIcon className="moij-icon"></TagFacesIcon>
                         Feeling/activity
                       </span>
