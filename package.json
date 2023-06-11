@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "private": false,
+  "public": true,
   "homepage": "http://8940148677SIVARAM.github.io/react-project ",
   "dependencies": {
     "-": "^0.0.1",
