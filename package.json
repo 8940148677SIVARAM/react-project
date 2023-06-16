@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://8940148677SIVARAM.github.io/react-project ",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.10.8",
@@ -39,10 +38,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src/",
-    "lint:fix":"eslint src/ --fix",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-      },
+    "lint:fix": "eslint src/ --fix"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

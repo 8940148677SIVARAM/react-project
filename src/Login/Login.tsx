@@ -110,7 +110,7 @@ function Login() {
                 </div>
               </form>
               <div className='sign'>
-                <Button className='create' onClick={()=>navigate("/signup")}>{lang.btn}</Button>
+                <Button className='create' onClick={() => navigate("/signup")}>{lang.btn}</Button>
                 <p><span><Link to={"/signup"}>{lang.p1}</Link></span>{lang.p2}</p>
               </div>
             </div>

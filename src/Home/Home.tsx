@@ -15,19 +15,10 @@ import myimg from "./rajesh1.jpg";
 import Card from "@mui/material/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import SearchIcon from "@mui/icons-material/Search";
 import {
-  Group as GroupIcon,
-  LockClock as LockClockIcon,
-  Diversity3 as Diversity3Icon,
-  AddToQueue as AddToQueueIcon,
-  LocalActivity as LocalActivityIcon,
-  Grade as GradeIcon,
   AutoStories as AutoStoriesIcon,
   Theaters as TheatersIcon,
-  Memory as MemoryIcon,
-  Storefront as StorefrontIcon,
-  BookmarkAdd as BookmarkAddIcon,
-  Layers as LayersIcon,
   Duo as DuoIcon,
   AddAPhoto as AddAPhotoIcon,
   TagFaces as TagFacesIcon,
@@ -39,36 +30,37 @@ import {
 import { useSelector } from "react-redux";
 import "./home.scss";
 import { useDispatch } from "react-redux";
-import { yesfriends,like,commentex } from "../redux/SliceState";
+import { yesfriends, like, commentex } from "../redux/SliceState";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
   let navigate = useNavigate();
-  let use=useSelector((state:any)=>state.facebook.users);
+  let use = useSelector((state: any) => state.facebook.users);
   let friend = useSelector((state: any) => state.facebook.users.filter((e: any) => e.email !== state.facebook.loginuser.email));
   let dispatch = useDispatch();
   let check = useSelector((state: any) => state.facebook.friend);
-  let user:any = useSelector((state: any) => state.facebook.loginuser);
-  let post=useSelector((state:any)=> state.facebook.posts);
-  const [poster,changepost]=useState(post);
-  const [commenttrue,oncomment]=useState(true);
-  const [message,yes]=useState("")
-  const create=(e:any)=>{
-     yes(e.target.value);
+  let user: any = useSelector((state: any) => state.facebook.loginuser);
+  let post = useSelector((state: any) => state.facebook.posts);
+  const [poster, changepost] = useState(post);
+  const [commenttrue, oncomment] = useState(true);
+  const [message, yes] = useState("");
+  const [search, changesearch] = useState("")
+  const create = (e: any) => {
+    yes(e.target.value);
   }
-  useEffect(()=>{
+  useEffect(() => {
     changepost(post)
- },[post])
-  const addfriends = (e: any,h :any) => {
-    let yes:boolean = check.filter((e:any)=>e.user===user.email).some((a:any) => a.opp === e);
-    let image:any=use.find((a:any)=>a.email===e);
+  }, [post])
+  const addfriends = (e: any, h: any) => {
+    let yes: boolean = check.filter((e: any) => e.user === user.email).some((a: any) => a.opp === e);
+    let image: any = use.find((a: any) => a.email === e);
 
     if (!yes) {
       let ship = {
         user: user.email,
         email: e,
         opp: e,
-        name:h,
-        img:image.img,
+        name: h,
+        img: image.img,
       }
       dispatch(yesfriends(ship));
     }
@@ -80,7 +72,7 @@ const Home = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
   return (
@@ -91,7 +83,7 @@ const Home = () => {
           <div className="col-3 col-xs-12">
             <div className="left-bar">
               <ul>
-                <li style={{cursor:"pointer"}}>
+                <li style={{ cursor: "pointer" }}>
                   <div className="row align-items">
                     <div className="col-2">
                       <img src={img1}></img>
@@ -99,15 +91,15 @@ const Home = () => {
                     <div className="col-10" onClick={() => navigate("/message")}>Friends</div>
                   </div>
                 </li>
-                <li style={{cursor:"pointer"}} onClick={()=>navigate("/profile")}>
+                <li style={{ cursor: "pointer" }} onClick={() => navigate("/profile")}>
                   <div className="row align-items">
                     <div className="col-2">
                       <img src={img3}></img>
                     </div>
-                    <div className="col-10">profile</div>
+                    <div className="col-10">PROFILE</div>
                   </div>
                 </li>
-                <li style={{cursor:"pointer"}} onClick={()=>navigate("/post")}>
+                <li style={{ cursor: "pointer" }} onClick={() => navigate("/post")}>
                   <div className="row align-items">
                     <div className="col-2">
                       <img src={img5}></img>
@@ -115,7 +107,7 @@ const Home = () => {
                     <div className="col-10">CREATE POST</div>
                   </div>
                 </li>
-                <li style={{cursor:"pointer"}} onClick={()=>navigate("/game")}>
+                <li style={{ cursor: "pointer" }} onClick={() => navigate("/game")}>
                   <div className="row align-items">
                     <div className="col-2">
                       <img src={img9}></img>
@@ -125,8 +117,8 @@ const Home = () => {
                 </li>
                 <li >
                   <div className="row align-items">
-                    <div className="col-2" style={{color:"green",width:"100%"}}>
-                       post images only
+                    <div className="col-2" style={{ color: "green", width: "100%" }}>
+                      post images only (reels and Stories are static)
                     </div>
                   </div>
                 </li>
@@ -203,10 +195,10 @@ const Home = () => {
             </div>
 
             <div className="chat-box">
-              <div className="row">
+              <div className="row  ok">
                 <div className="col-2">
                   <div className="typing-img">
-                    <img src={user.img} alt="upload-img"></img>
+                    {user.img ? <img src={user.img} alt="upload-img"></img> : <AccountCircle></AccountCircle>}
                   </div>
                 </div>
                 <div className="col-10">
@@ -215,20 +207,20 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="upload-items">
-                  <div className="row">
-                    <div className="col-4 upload-icon">
-                      <span onClick={()=>navigate("/post")}>
+                  <div className="row" style={{ justifyContent: "center" }}>
+                    <div className="col-4 upload-icon h-none">
+                      <span onClick={() => navigate("/post")}>
                         <DuoIcon className="video-icon"></DuoIcon>Live Video
                       </span>
                     </div>
-                    <div className="col-4 upload-icon" style={{cursor:"pointer"}}>
-                      <span onClick={()=>navigate("/post")}>
+                    <div className="col-4 upload-icon" style={{ cursor: "pointer" }}>
+                      <span onClick={() => navigate("/post")}>
                         <AddAPhotoIcon className="photo-icon"></AddAPhotoIcon>
                         Photo/video
                       </span>
                     </div>
-                    <div className="col-4 upload-icon">
-                      <span onClick={()=>navigate("/post")}>
+                    <div className="col-4 upload-icon h-none">
+                      <span onClick={() => navigate("/post")}>
                         <TagFacesIcon className="moij-icon"></TagFacesIcon>
                         Feeling/activity
                       </span>
@@ -239,45 +231,48 @@ const Home = () => {
             </div>
             <div className="home-card">
               <div className="row">
-                {poster.map((e:any,i:any)=><div className="col-12" style={{marginBottom:"20px"}}>
+                {poster.map((e: any, i: any) => <div className="col-12" style={{ marginBottom: "20px" }}>
                   <Card sx={{ Width: 100 }}>
                     <div>
                       <h1>{e.img ? <img src={e.img}></img> : <AccountCircle />}{e.name}</h1>
                     </div>
                     <img width="100%" src={e.postimg}></img>
-                    <p style={{textAlign:"center",fontFamily:"cursive",fontSize:"20px",color:"black",border:"2px solid gray",borderRadius:"25px"}}>{e.posttext}</p>
+                    <p style={{ textAlign: "center", fontFamily: "cursive", fontSize: "20px", color: "black", border: "2px solid gray", borderRadius: "25px" }}>{e.posttext}</p>
                     <div className="viewlike">
-                     <small>liked by {e.like[0]?e.like[0]:"on one"} and  {e.like.length===0?"No":e.like.length-1} other people's</small>
+                      <small>liked by {e.like[0] ? e.like[0] : "on one"} and  {e.like.length === 0 ? "No" : e.like.length - 1} other people's</small>
                     </div>
                     <div className="card-share">
                       <div className="row">
-                        <div className="col-6 view-icon" onClick={()=>{
+                        <div className="col-6 view-icon" onClick={() => {
                           dispatch(like(i));
                           changepost(post);
                         }}>
-                          <span className={e.like.some((e:any)=>e==user.email)?"like":""}>
+                          <span className={e.like.some((e: any) => e == user.email) ? "like" : ""}>
                             <ThumbUpOffAltIcon></ThumbUpOffAltIcon>Like
                           </span>
                         </div>
-                        <div className="col-6 view-icon" onClick={()=>oncomment(!commenttrue)}>
+                        <div className="col-6 view-icon" onClick={() => oncomment(!commenttrue)}>
                           <span>
                             <ChatBubbleOutlineIcon></ChatBubbleOutlineIcon>
                             Comment
                           </span>
                         </div>
                       </div>
-                      <div className={commenttrue?"moji-input d-none":"moji-input"}>
-                           {e.Comment.map((e:any)=><> <div className="comment"><img src={e.img} alt="change"></img><h1>{e.name}</h1><p>{e.message}</p></div></>)}
+                      <div className={commenttrue ? "moji-input d-none" : "moji-input"}>
+                        {e.Comment.map((e: any) => <> <div className="comment"><img src={e.img} alt="change"></img><h1>{e.name}</h1><p>{e.message}</p></div></>)}
                         <div className="row align-items">
                           <div className="col-02">
                             <img src={img1}></img>
                           </div>
                           <div className="col-10 row">
                             <input type="text" onChange={create} value={message}></input>
-                            <button type="button" onClick={()=>{if(message!==""){dispatch(commentex([i,message]));
-                          changepost(post);
-                          yes("");
-                          } else{alert("please ender the comment")}}}><SendIcon></SendIcon></button>
+                            <button type="button" onClick={() => {
+                              if (message !== "") {
+                                dispatch(commentex([i, message]));
+                                changepost(post);
+                                yes("");
+                              } else { alert("please ender the comment") }
+                            }}><SendIcon></SendIcon></button>
                           </div>
                         </div>
                       </div>
@@ -291,8 +286,12 @@ const Home = () => {
 
           <div className="col-3 col-xs-12">
             <div className="right-bar">
+              <span className="box">
+                <input type="text" placeholder="search your firends" onChange={(e) => changesearch(e.target.value)}></input>
+                <span className="search"><SearchIcon></SearchIcon></span>
+              </span>
               <ul>
-                {friend.map((e: any) => <><li> {e.img ? <img src={e.img}></img> : <AccountCircle />}{e.name}<button onClick={() => addfriends(e.email,e.name)}>ADDFRIEND</button></li></>)}
+                {friend.filter((h: any) => h.name.includes(search)).map((e: any) => <><li> {e.img ? <img src={e.img}></img> : <AccountCircle />}{e.name}<button onClick={() => addfriends(e.email, e.name)}>ADDFRIEND</button></li></>)}
               </ul>
             </div>
           </div>

@@ -4,12 +4,10 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
@@ -17,16 +15,16 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Button, Card } from "@mui/material";
 import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { loginpage, userLogin } from '../redux/SliceState';
 import {
   FacebookOutlined as FacebookOutlinedIcon,
   Home as HomeIcon,
   AddToQueue as AddToQueueIcon,
-  Store as StoreIcon,
   Diversity1Outlined as Diversity1OutlinedIcon,
   SportsEsportsOutlined as SportsEsportsOutlinedIcon,
   AccountBox as AccountBoxIcon,
   Logout as LogoutIcon,
-  AccountCircle as AccountCircleIcon,
 } from "@mui/icons-material";
 import "./nav.scss";
 import { useNavigate } from "react-router-dom";
@@ -71,8 +69,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 const Nav = () => {
-  const navigate=useNavigate();
-  const login:any=useSelector((state:any)=>state.facebook.loginuser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const login: any = useSelector((state: any) => state.facebook.loginuser);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -99,7 +98,7 @@ const Nav = () => {
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
-    
+
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "top",
@@ -118,25 +117,25 @@ const Nav = () => {
         <Card className="popup-img">
           <div className="popupimg-name">
             <div>
-            <img src={login.img} alt="error"></img>
+              <img src={login.img} alt="error"></img>
             </div>
-           <div>
-            <header><h6>NAME</h6>{login.name}</header>
-           </div>
-           <div>
+            <div>
+              <header><h6>NAME</h6>{login.name}</header>
+            </div>
+            <div>
               <h6>BIRTH DAY:</h6>{login.day},{login.month},{login.year}
-           </div>
+            </div>
           </div>
         </Card>
-      <MenuItem onClick={handleMenuClose}>
-        <AccountBoxIcon></AccountBoxIcon><span onClick={()=>navigate("/profile")}> Profile</span>
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-        <AccountCircle></AccountCircle><span> My account</span>
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-        <LogoutIcon></LogoutIcon><span onClick={()=>navigate("/login")}>logout</span> 
-      </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          <AccountBoxIcon></AccountBoxIcon><span onClick={() => navigate("/profile")}> Profile</span>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          <AccountCircle></AccountCircle><span> My account</span>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          <LogoutIcon></LogoutIcon><span onClick={() => dispatch(loginpage(false))}>logout</span>
+        </MenuItem>
       </div>
     </Menu>
   );
@@ -158,21 +157,21 @@ const Nav = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+      <MenuItem onClick={() => navigate("/message")}>
+        <IconButton size="large" color="inherit">
+          <Badge color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/message")}>
         <IconButton
           size="large"
-          aria-label="show 17 new notifications"
+
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -192,8 +191,8 @@ const Nav = () => {
       </MenuItem>
     </Menu>
   );
-  
-    return (
+
+  return (
     // ==========================================================================
 
     <div id="navbar">
@@ -209,20 +208,20 @@ const Nav = () => {
               </SearchIconWrapper>
               <StyledInputBase inputProps={{ "aria-label": "search" }} />
             </Search>
-            <Box sx={{ flexGrow:2}}>
+            <Box sx={{ flexGrow: 2 }}>
               {/* ==================================================================== */}
               <div className="navic-icon">
                 <div className="navnav-icon active">
-                  <HomeIcon style={{cursor:"pointer"}}></HomeIcon>
+                  <HomeIcon style={{ cursor: "pointer" }}></HomeIcon>
                 </div>
                 <div className="navnav-icon" >
-                  <button onClick={()=>navigate("/post")}><AddToQueueIcon style={{cursor:"pointer"}}></AddToQueueIcon></button>
+                  <button onClick={() => navigate("/post")}><AddToQueueIcon style={{ cursor: "pointer" }}></AddToQueueIcon></button>
                 </div>
-                <div className="navnav-icon" onClick={()=>navigate("/message")}>
-                  <Diversity1OutlinedIcon style={{cursor:"pointer"}}></Diversity1OutlinedIcon>
+                <div className="navnav-icon" onClick={() => navigate("/message")}>
+                  <Diversity1OutlinedIcon style={{ cursor: "pointer" }}></Diversity1OutlinedIcon>
                 </div>
                 <div className="navnav-icon">
-                  <button onClick={()=>navigate("/game")} style={{cursor:"pointer"}}><SportsEsportsOutlinedIcon></SportsEsportsOutlinedIcon></button>
+                  <button onClick={() => navigate("/game")} style={{ cursor: "pointer" }}><SportsEsportsOutlinedIcon></SportsEsportsOutlinedIcon></button>
                 </div>
               </div>
             </Box>
@@ -239,19 +238,19 @@ const Nav = () => {
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
                 size="large"
-                aria-label="show 4 new mails"
+                onClick={() => navigate("/message")}
                 className="side-icon"
               >
-                <Badge badgeContent={4} color="error">
+                <Badge color="error">
                   <MailIcon />
                 </Badge>
               </IconButton>
               <IconButton
                 size="large"
-                aria-label="show 17 new notifications"
+                onClick={() => navigate("/message")}
                 className="side-icon"
               >
-                <Badge badgeContent={17} color="error">
+                <Badge color="error">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
@@ -264,7 +263,7 @@ const Nav = () => {
                 onClick={handleProfileMenuOpen}
                 className="side-icon"
               >
-                {login.img?<img src={login.img} width="50px" height="50px" style={{borderRadius:"50%"}} alt="ok"></img>:<AccountCircle />}
+                {login.img ? <img src={login.img} width="50px" height="50px" style={{ borderRadius: "50%" }} alt="ok"></img> : <AccountCircle />}
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>

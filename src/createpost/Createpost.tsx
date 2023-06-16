@@ -12,26 +12,26 @@ import { post } from '../redux/SliceState';
 const Createpost = () => {
     let use = useSelector((e: any) => e.facebook.loginuser);
     let dispatch = useDispatch();
-    let navigate= useNavigate();
-    const [text,changetext]=useState("");
-    const [img,changeimg]=useState(use.img);
-    const typeing=(e:any)=>{
-     changetext(e.target.value);
+    let navigate = useNavigate();
+    const [text, changetext] = useState("");
+    const [img, changeimg] = useState(use.img);
+    const typeing = (e: any) => {
+        changetext(e.target.value);
     }
     const postfiles = (e: any) => {
         const reader = new FileReader();
         reader.addEventListener("load", () => {
-           changeimg(reader.result);
-           
+            changeimg(reader.result);
+
         })
         reader.readAsDataURL(e.target.files[0])
     }
-    const sendpost=(e:any) => {
+    const sendpost = (e: any) => {
         e.preventDefault();
         console.log(true);
-            let poster:any={...use,postimg:img,posttext:text,like:[],Comment:[]};
-            dispatch(post(poster));
-            navigate("/home");
+        let poster: any = { ...use, postimg: img, posttext: text, like: [], Comment: [] };
+        dispatch(post(poster));
+        navigate("/home");
     }
     return (
         <div>
@@ -48,7 +48,7 @@ const Createpost = () => {
                             </div>
                             <div className='post-man'>
                                 <div className='man-img'>
-                                    {use.img?<img src={use.img} alt='error'></img>:""}
+                                    {use.img ? <img src={use.img} alt='error'></img> : ""}
                                 </div>
                                 <div className='man-name'>
                                     <h4>{use.name}</h4>
@@ -65,19 +65,19 @@ const Createpost = () => {
                                 </div>
                                 <div className='post-img'>
                                     <Button className="upload"><img src={imgphoto} alt="next"></img>
-                                    <input type="file" onChange={postfiles}></input>
+                                        <input type="file" onChange={postfiles}></input>
                                     </Button>
                                     <Button className="upload"><img src={imgmojo} alt="next"></img>
-                                    <input type="file" onChange={postfiles}></input>
+                                        <input type="file" onChange={postfiles}></input>
                                     </Button>
                                     <Button className="upload"><img src={imggit} alt="next"></img>
-                                    <input type="file" onChange={postfiles}></input>
+                                        <input type="file" onChange={postfiles}></input>
                                     </Button>
                                 </div>
                             </div>
                             <div className='post-btn'>
                                 <form onSubmit={sendpost}>
-                                <button type="submit">Post</button>
+                                    <button type="submit">Post</button>
                                 </form>
                             </div>
                         </Card>

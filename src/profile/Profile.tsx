@@ -8,13 +8,13 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 import { HighlightOff as HighlightOffIcon, Edit as EditIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeuser,userLogin } from '../redux/SliceState';
+import { changeuser, userLogin } from '../redux/SliceState';
 const Profile = () => {
-    const user:any = useSelector((state: any) => state.facebook.loginuser);
-    let dispatch=useDispatch();
+    const user: any = useSelector((state: any) => state.facebook.loginuser);
+    let dispatch = useDispatch();
     const [name, change] = useState(user.name);
     const [sname, changesname] = useState(user.sname);
-    const [img,changeimg]=useState(user.img)
+    const [img, changeimg] = useState(user.img)
     const changename = (e: any) => {
         change(e.target.value);
     }
@@ -28,11 +28,11 @@ const Profile = () => {
         })
         reader.readAsDataURL(e.target.files[0])
     }
-    
+
     const save = () => {
-    let use={...user,img:img,name:name,sname:sname}
-   dispatch(changeuser(use))
-   dispatch(userLogin(use))
+        let use = { ...user, img: img, name: name, sname: sname }
+        dispatch(changeuser(use))
+        dispatch(userLogin(use))
     }
     return (
         <section id='profile-section'>
@@ -43,7 +43,7 @@ const Profile = () => {
                 <div className='profile-card'>
                     <Card className='profile'>
                         <form>
-                            <div  className="head">
+                            <div className="head">
                                 <h1>Create Profile</h1>
                                 <img src={user.img} alt="upload" ></img>
                             </div>

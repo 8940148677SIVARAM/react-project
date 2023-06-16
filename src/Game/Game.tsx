@@ -2,7 +2,10 @@ import "./game.scss";
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import stone from"./stone.png"
+import stone from "./stone.png";
+import animal from "./animal.gif";
+import animal1 from "./animal1.gif"
+import { useNavigate } from "react-router-dom";
 let get: any = localStorage.getItem("score") || localStorage.getItem("initial");
 let set: any = JSON.parse(get);
 let scores: any = set;
@@ -18,6 +21,7 @@ function Game() {
       const [start, chagestart] = useState(true);
       const [name1, changename1] = useState("");
       const [pass1, changepass1] = useState("");
+      let navigate = useNavigate();
       const action = () => {
             changejump(true);
             setTimeout(function () {
@@ -89,8 +93,8 @@ function Game() {
       return (
             <>
                   <section className="overall" onClick={() => action()}>
-                        <section className="score" style={{background:"black"}}>
-                              <h1>Score list</h1>
+                        <section className="score" style={{ background: "black" }}>
+                              <h1>Score list <button onClick={() => navigate("/home")} style={{ border: "none", background: "blue", padding: "2px" }}>go to home</button></h1>
                               <ul>
                                     {scores?.sort((a: any, b: any) => b.score - a.score).map((e: any, i: any) => <li><h2>{i + 1}</h2>Name:{e.name},score:{e.score}</li>)}
                               </ul>
@@ -112,20 +116,20 @@ function Game() {
                                           <OutlinedInput placeholder="enter the id" onChange={guest1} value={name1} /><br></br>
                                           <OutlinedInput placeholder="enter the pass" onChange={password1} value={pass1} /><br></br>
                                           <Button variant="contained" color="success" onClick={() => on()}>
-                                                Start the game
+                                                Start the
                                           </Button>
                                     </div>
                               </div>
                         </section>
                         <section className={game ? "game" : "game d-none"} >
                               <div id="animal" className={jump ? "Animal" : ""}>
-                                    <img src="https://i.pinimg.com/originals/a1/79/b5/a179b58b285b1f8baed84e9a10daea7e.gif" alt="tiger"></img>
+                                    <img src={animal1} alt="tiger"></img>
                               </div>
                               <div id="animal1" className="Animal">
-                                    <img src="https://i.pinimg.com/originals/f4/30/57/f4305767fe8cc6128a2628972b8f304c.gif" alt="zebra"></img>
+                                    <img src={animal} alt="zebra"></img>
                               </div>
                               <div id="block" className="Block">
-                                    <img src={stone}alt="stone"></img>
+                                    <img src={stone} alt="stone"></img>
                               </div>
                         </section>
                         <section className={gameover ? "start" : "d-none"}>
