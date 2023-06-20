@@ -234,7 +234,7 @@ const Home = () => {
                 {poster.map((e: any, i: any) => <div className="col-12" style={{ marginBottom: "20px" }}>
                   <Card sx={{ Width: 100 }}>
                     <div>
-                      <h1>{e.img ? <img src={e.img}></img> : <AccountCircle />}{e.name}</h1>
+                      <h1>{e.img ? <img src={e.img}></img> : <AccountCircle />}<span>{e.name}</span></h1>
                     </div>
                     <img width="100%" src={e.postimg}></img>
                     <p style={{ textAlign: "center", fontFamily: "cursive", fontSize: "20px", color: "black", border: "2px solid gray", borderRadius: "25px" }}>{e.posttext}</p>

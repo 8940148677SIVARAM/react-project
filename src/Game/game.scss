@@ -169,19 +169,26 @@
 .d-none {
     display: none;
 }
-
+.siva-none{
+    display: none;
+    color: red;
+    border: 2px solid gray;
+    background-color: sandybrown;
+    padding: 2px;
+}
 @media(max-width:992px) {
+    .siva-none{
+        display:inline-block !important;
+    }
     .overall {
         .score {
             width: 100% !important;
             height: 20vh !important;
             overflow: scroll !important;
-
             ul {
                 flex-direction: column !important;
             }
         }
-
         .game {
             width: 100% !important;
             height: 80vh !important;

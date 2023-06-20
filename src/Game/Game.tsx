@@ -84,7 +84,7 @@ function Game() {
                               localStorage.setItem("score", JSON.stringify(scores))
                               clearInterval(stop);
                         }
-                  }, 1930);
+                  }, 1950);
             }
             else {
                   alert("id password is wrong");
@@ -136,7 +136,7 @@ function Game() {
                               <h1>Jumb You Can Click Window</h1>
                               <div className="initial">
                                     <div>
-                                          <h1>gameover your score on the score list</h1>
+                                          <h1>gameover your score on the score list <span className="siva-none">play landscape</span></h1>
                                           <Button variant="contained" color="success" onClick={() => on()}>
                                                 Start the game
                                           </Button>

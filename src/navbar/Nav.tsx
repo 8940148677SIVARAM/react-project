@@ -131,9 +131,6 @@ const Nav = () => {
           <AccountBoxIcon></AccountBoxIcon><span onClick={() => navigate("/profile")}> Profile</span>
         </MenuItem>
         <MenuItem onClick={handleMenuClose}>
-          <AccountCircle></AccountCircle><span> My account</span>
-        </MenuItem>
-        <MenuItem onClick={handleMenuClose}>
           <LogoutIcon></LogoutIcon><span onClick={() => dispatch(loginpage(false))}>logout</span>
         </MenuItem>
       </div>
