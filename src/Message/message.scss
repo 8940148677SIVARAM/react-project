@@ -69,7 +69,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
                 img {
                     width: 40px;
                     height: 40px;
@@ -211,7 +210,6 @@
         .firends-list {
             .first {
                 position: relative !important;
-                z-index: -1 !important;
             }
         }
     }
@@ -219,7 +217,6 @@
     .st {
         position: relative !important;
         width: 100% !important;
-
         .s {
             width: 100% !important;
             position: absolute !important;
