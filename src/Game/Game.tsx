@@ -67,24 +67,66 @@ function Game() {
                   changegame(true);
                   chagestart(false);
                   chageover(false);
-                  let stop = setInterval(() => {
-                        let animal: any = document.querySelector("#animal");
-                        let top: any = window.getComputedStyle(animal).getPropertyValue("bottom");
-                        if (parseInt(top) <= 100) {
-                              let now2 = Date.now();
-                              let points = now2 - now1;
-                              alert("You loss");
-                              chageover(true);
-                              changegame(false);
-                              let user = {
-                                    name: name1,
-                                    score: points,
+                  if(window.innerWidth>=1175){
+                        let stop = setInterval(() => {
+                              let animal: any = document.querySelector("#animal");
+                              let top: any = window.getComputedStyle(animal).getPropertyValue("bottom");
+                              if (parseInt(top) <= 100) {
+                                    let now2 = Date.now();
+                                    let points = now2 - now1;
+                                    alert("You loss");
+                                    chageover(true);
+                                    changegame(false);
+                                    let user = {
+                                          name: name1,
+                                          score: points,
+                                    }
+                                    scores.push(user);
+                                    localStorage.setItem("score", JSON.stringify(scores))
+                                    clearInterval(stop);
                               }
-                              scores.push(user);
-                              localStorage.setItem("score", JSON.stringify(scores))
-                              clearInterval(stop);
-                        }
-                  }, 1950);
+                        }, 2790);
+                  }
+                  else if(window.innerWidth>=600){
+                        let stop = setInterval(() => {
+                              let animal: any = document.querySelector("#animal");
+                              let top: any = window.getComputedStyle(animal).getPropertyValue("bottom");
+                              if (parseInt(top) <= 100) {
+                                    let now2 = Date.now();
+                                    let points = now2 - now1;
+                                    alert("You loss");
+                                    chageover(true);
+                                    changegame(false);
+                                    let user = {
+                                          name: name1,
+                                          score: points,
+                                    }
+                                    scores.push(user);
+                                    localStorage.setItem("score", JSON.stringify(scores))
+                                    clearInterval(stop);
+                              }
+                        }, 2650);
+                  }
+                  else{
+                        let stop = setInterval(() => {
+                              let animal: any = document.querySelector("#animal");
+                              let top: any = window.getComputedStyle(animal).getPropertyValue("bottom");
+                              if (parseInt(top) <= 100) {
+                                    let now2 = Date.now();
+                                    let points = now2 - now1;
+                                    alert("You loss");
+                                    chageover(true);
+                                    changegame(false);
+                                    let user = {
+                                          name: name1,
+                                          score: points,
+                                    }
+                                    scores.push(user);
+                                    localStorage.setItem("score", JSON.stringify(scores))
+                                    clearInterval(stop);
+                              }
+                        }, 2200);
+                  }
             }
             else {
                   alert("id password is wrong");
@@ -93,8 +135,8 @@ function Game() {
       return (
             <>
                   <section className="overall" onClick={() => action()}>
-                        <section className="score" style={{ background: "black" }}>
-                              <h1>Score list <button onClick={() => navigate("/home")} style={{ border: "none", background: "blue", padding: "2px" }}>go to home</button></h1>
+                        <section className={game ?"d-none":"score"}>
+                              <h1>Score list <button onClick={() => navigate("/home")} style={{ border: "none", background: "aliceblue",cursor:"pointer" , padding: "8px" ,borderRadius:"25px" }}>go to home</button></h1>
                               <ul>
                                     {scores?.sort((a: any, b: any) => b.score - a.score).map((e: any, i: any) => <li><h2>{i + 1}</h2>Name:{e.name},score:{e.score}</li>)}
                               </ul>
